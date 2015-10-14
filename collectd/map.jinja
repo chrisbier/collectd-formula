@@ -56,7 +56,7 @@
 {# Settings dictionary with default values #}
 {% set default_settings = {
     'collectd': {
-        'Hostname': salt['grains.get']('fqdn'),
+        'Hostname': salt['grains.get']('host'),
         'Interval': 10,
         'Timeout': 2,
         'ReadThreads': 5,
@@ -66,12 +66,15 @@
         'FQDNLookup': 'false',
         'plugins': {
             'default': [
-                'battery',
                 'cpu',
-                'entropy',
                 'load',
                 'memory',
                 'swap',
+                'disk',
+                'df',
+                'interface',
+                'irq',
+                'processes',
                 'users'
             ],
             'apache': {
